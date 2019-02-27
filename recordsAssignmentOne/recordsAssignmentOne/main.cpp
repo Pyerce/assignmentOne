@@ -68,8 +68,8 @@ int recordSizeCounter()
         inFile >> firstName >> lastName;
         inFile >> moneyAmount;
         cout << endl << firstName << " " << lastName << endl;
-        if(i == 5)
-            break;
+        cout << i;
+        break;
         }
         //cout << endl << N;
         //break;
@@ -84,6 +84,33 @@ int recordSizeCounter()
 
 int displayArray()
 {
+    int N = 0;
+    string firstName = "ERROR";
+    string lastName;
+    double moneyAmount;
+    ifstream inFile;
+    inFile.open("data.txt");
+    if (inFile.is_open())
+        cout <<"This is open.";
+    else
+        cout << "NOT OPEN";
+    cout << endl << "This is in displayArray : " << endl;
+    while(!inFile.eof())
+    {
+        for(int i = 0; i < N+1; i++) {
+            inFile >> firstName >> lastName;
+            inFile >> moneyAmount;
+            cout << endl << firstName << " " << lastName << endl;
+
+        }
+        //cout << endl << N;
+        //break;
+        //cout << endl << firstName << " " << lastName << endl;
+        //break;
+    }
+    inFile.close();
+    cout << endl << "displayArray file is closed" << endl;
+    
     return 0;
 }
 
@@ -127,6 +154,7 @@ int main(int argc, const char * argv[])
     //N =
     recordSizeCounter();
     fillArray();
+    displayArray();
 //    PERSON[N];
 
 
